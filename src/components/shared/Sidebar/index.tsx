@@ -6,7 +6,6 @@ import styled from 'styled-components'
 import { Logo } from '../Logo'
 import { Search } from '../Search'
 import { Menu } from './Menu'
-import { Docz } from './Docz'
 import { Hamburger } from './Hamburger'
 
 import { get } from '~utils/theme'
@@ -19,7 +18,6 @@ interface WrapperProps {
 
 const sidebarBg = get('colors.sidebarBg')
 const sidebarText = get('colors.sidebarText')
-const sidebarBorder = get('colors.sidebarBorder')
 
 const Wrapper = styled.div<WrapperProps>`
   position: relative;
@@ -74,26 +72,6 @@ const Empty = styled.div`
   opacity: 0.7;
   padding: 0 24px;
   color: ${sidebarText};
-`
-
-const Footer = styled.div`
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  color: ${sidebarText};
-  border-top: 1px dashed ${sidebarBorder};
-`
-
-const FooterLink = styled.a`
-  padding: 0;
-  margin: 0;
-  margin-left: 5px;
-`
-
-const FooterLogo = styled(Docz)<{ width: number }>`
-  fill: ${sidebarText};
 `
 
 interface OpenProps {
@@ -167,12 +145,6 @@ export const Sidebar: SFC = () => {
                 ))}
             </Menus>
           )}
-          <Footer>
-            Built with
-            <FooterLink href="https://docz.site" target="_blank">
-              <FooterLogo width={40} />
-            </FooterLink>
-          </Footer>
         </Content>
       </Wrapper>
       <ToggleBackground opened={hidden} onClick={handleSidebarToggle} />

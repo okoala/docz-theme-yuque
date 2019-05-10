@@ -50,14 +50,16 @@ const Wrapper = styled.div<WrapperProps>`
 const LogoImg = styled('img')`
   padding: 0;
   margin: 5px 0;
+  float: left;
+  margin-right: 10px;
 `
 
 const LogoText = styled('h1')`
   margin: 5px 0;
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-size: 22px;
+  font-weight: 400;
   color: ${get('colors.sidebarText')};
+  overflow: hidden;
 `
 
 interface LogoProps {
@@ -76,11 +78,10 @@ export const Logo: SFC<LogoProps> = ({ showBg }) => {
   return (
     <Wrapper showBg={showBg}>
       <Link to={typeof base === 'string' ? base : '/'}>
-        {logo ? (
+        {logo && (
           <LogoImg src={logo.src} width={logo.width} alt={title} />
-        ) : (
-          <LogoText>{title}</LogoText>
         )}
+        <LogoText>{title}</LogoText>
       </Link>
     </Wrapper>
   )

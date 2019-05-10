@@ -22,6 +22,8 @@
     "@loadable/component": "^5.9.0",
     "@reach/router": "^1.2.1",
     "@tippy.js/react": "^2.2.0",
+    "@types/loadable__component": "^5.9.0",
+    "autoprefixer": "^9.5.1",
     "codemirror": "^5.46.0",
     "copy-text-to-clipboard": "^2.1.0",
     "docz": "^1.2.0",
@@ -47,6 +49,7 @@
   "devDependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@types/lodash": "^4.14.124",
+    "@types/reach__router": "^1.2.4",
     "@types/styled-components": "^4.1.14",
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-styled-components": "^1.10.0",
