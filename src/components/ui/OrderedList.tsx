@@ -7,14 +7,7 @@ export const OrderedList = styled.ol`
 
   & li {
     counter-increment: my-awesome-counter;
-  }
-
-  & li::before {
-    content: counter(my-awesome-counter) '. ';
-    color: ${get('colors.border')};
-    font-weight: bold;
-    font-family: 'Playfair Display', serif;
-    margin-right: 5px;
+    ${get('styles.li')};
   }
 
   ${get('styles.ol')};

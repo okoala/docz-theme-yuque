@@ -24,9 +24,7 @@ const Icon = styled.div<OpenProps>`
 `
 
 const sidebarBg = get('colors.sidebarBg')
-const sidebarPrimary = get('colors.sidebarPrimary')
 const sidebarText = get('colors.sidebarText')
-const primaryColor = get('colors.primary')
 const backgroundColor = get('colors.background')
 const textColor = get('colors.text')
 
@@ -80,16 +78,6 @@ const ToggleButton = styled.button<OpenProps>`
   border: none;
   background: ${p => (p.opened ? sidebarBg(p) : backgroundColor(p))};
   border-radius: ${p => (p.opened ? `0 0 ${radii(p)} 0` : `${radii(p)}`)};
-
-  &:before {
-    position: absolute;
-    content: '';
-    top: -3px;
-    left: 0;
-    width: calc(100% + 1px);
-    height: ${p => (p.opened ? '3px' : 0)};
-    background: ${p => sidebarPrimary(p) || primaryColor(p)};
-  }
 
   ${mq({
     display: ['block', 'block', 'block', 'none'],

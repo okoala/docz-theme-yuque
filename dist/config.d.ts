@@ -11,6 +11,7 @@ export declare const config: {
         h6: import("styled-components").FlattenSimpleInterpolation;
         ol: import("styled-components").FlattenSimpleInterpolation;
         ul: import("styled-components").FlattenSimpleInterpolation;
+        li: import("styled-components").FlattenSimpleInterpolation;
         playground: import("styled-components").FlattenSimpleInterpolation;
         code: import("styled-components").FlattenInterpolation<import("styled-components").ThemeProps<any>>;
         pre: import("styled-components").FlattenInterpolation<import("styled-components").ThemeProps<any>>;
@@ -26,7 +27,6 @@ export declare const config: {
     radii: string;
     mode: string;
     logo: {
-        src: string;
         width: number;
     };
     showPlaygroundEditor: boolean;

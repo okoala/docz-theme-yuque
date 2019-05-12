@@ -18,6 +18,7 @@ interface WrapperProps {
 
 const sidebarBg = get('colors.sidebarBg')
 const sidebarText = get('colors.sidebarText')
+const sidebarBorder = get('colors.sidebarBorder')
 
 const Wrapper = styled.div<WrapperProps>`
   position: relative;
@@ -59,6 +60,7 @@ const Content = styled.div`
   min-width: 280px;
   height: 100%;
   max-height: 100vh;
+  border-right: 1px solid ${sidebarBorder};
 `
 
 const Menus = styled.nav`

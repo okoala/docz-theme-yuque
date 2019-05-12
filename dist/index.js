@@ -107,7 +107,7 @@ const light = Object.assign({}, colors, {
   sidebarBg: grey2,
   sidebarText: dark,
   sidebarHighlight: null,
-  sidebarBorder: grayLight,
+  sidebarBorder: grey4,
   background: white,
   border: grayLight,
   theadColor: gray,
@@ -1033,8 +1033,6 @@ const breakpoints = {
 };
 const mq = facepaint([`@media(min-width: ${breakpoints.mobile}px)`, `@media(min-width: ${breakpoints.tablet}px)`, `@media(min-width: ${breakpoints.desktop}px)`]);
 
-const sidebarPrimary = __chunk_1.get('colors.sidebarPrimary');
-const primaryColor = __chunk_1.get('colors.primary');
 const Wrapper$4 = styled__default.div`
   position: relative;
   display: flex;
@@ -1047,16 +1045,6 @@ const Wrapper$4 = styled__default.div`
   a:hover,
   a:visited {
     text-decoration: none;
-  }
-
-  &:before {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: ${p => sidebarPrimary(p) || primaryColor(p)};
   }
 
   @media screen and (max-width: ${breakpoints.desktop}px) {
@@ -1096,7 +1084,7 @@ const Logo = ({
     showBg: showBg
   }, React.createElement(Link, {
     to: typeof base === 'string' ? base : '/'
-  }, logo && React.createElement(LogoImg, {
+  }, logo && logo.src && React.createElement(LogoImg, {
     src: logo.src,
     width: logo.width,
     alt: title
@@ -1138,8 +1126,8 @@ const Search = ({
   }
 }));
 
-const sidebarPrimary$1 = __chunk_1.get('colors.sidebarPrimary');
-const primaryColor$1 = __chunk_1.get('colors.primary');
+const sidebarPrimary = __chunk_1.get('colors.sidebarPrimary');
+const primaryColor = __chunk_1.get('colors.primary');
 const Link$2 = styled__default.a`
   position: relative;
   font-size: 14px;
@@ -1167,7 +1155,7 @@ const Link$2 = styled__default.a`
     left: 0;
     width: 0;
     height: 20px;
-    background: ${p => sidebarPrimary$1(p) || primaryColor$1(p)};
+    background: ${p => sidebarPrimary(p) || primaryColor(p)};
     transition: width 0.2s;
   }
 
@@ -1347,6 +1335,11 @@ MenuLink.displayName = 'MenuLink';
 const Wrapper$7 = styled__default.div`
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
+
+  &:first-child {
+    margin-top: 0;
+  }
 `;
 const List = styled__default.dl`
   flex: 1;
@@ -1424,9 +1417,7 @@ const Icon$3 = styled__default.div`
     scale(${p => p.opened ? 0.8 : 1});
 `;
 const sidebarBg = __chunk_1.get('colors.sidebarBg');
-const sidebarPrimary$2 = __chunk_1.get('colors.sidebarPrimary');
 const sidebarText$1 = __chunk_1.get('colors.sidebarText');
-const primaryColor$2 = __chunk_1.get('colors.primary');
 const backgroundColor$1 = __chunk_1.get('colors.background');
 const textColor$1 = __chunk_1.get('colors.text');
 const IconLine = styled__default.span`
@@ -1480,16 +1471,6 @@ const ToggleButton = styled__default.button`
   background: ${p => p.opened ? sidebarBg(p) : backgroundColor$1(p)};
   border-radius: ${p => p.opened ? `0 0 ${radii(p)} 0` : `${radii(p)}`};
 
-  &:before {
-    position: absolute;
-    content: '';
-    top: -3px;
-    left: 0;
-    width: calc(100% + 1px);
-    height: ${p => p.opened ? '3px' : 0};
-    background: ${p => sidebarPrimary$2(p) || primaryColor$2(p)};
-  }
-
   ${mq({
   display: ['block', 'block', 'block', 'none']
 })};
@@ -1512,6 +1493,7 @@ const Hamburger = ({
 
 const sidebarBg$1 = __chunk_1.get('colors.sidebarBg');
 const sidebarText$2 = __chunk_1.get('colors.sidebarText');
+const sidebarBorder$1 = __chunk_1.get('colors.sidebarBorder');
 const Wrapper$8 = styled__default.div`
   position: relative;
   width: 280px;
@@ -1551,6 +1533,7 @@ const Content = styled__default.div`
   min-width: 280px;
   height: 100%;
   max-height: 100vh;
+  border-right: 1px solid ${sidebarBorder$1};
 `;
 const Menus = styled__default.nav`
   flex: 1;
@@ -1659,14 +1642,7 @@ const OrderedList = styled__default.ol`
 
   & li {
     counter-increment: my-awesome-counter;
-  }
-
-  & li::before {
-    content: counter(my-awesome-counter) '. ';
-    color: ${__chunk_1.get('colors.border')};
-    font-weight: bold;
-    font-family: 'Playfair Display', serif;
-    margin-right: 5px;
+    ${__chunk_1.get('styles.li')};
   }
 
   ${__chunk_1.get('styles.ol')};
@@ -2023,20 +1999,14 @@ const TableStyled = styled__default.table`
 const Table = props => React.createElement(Wrapper$c, null, React.createElement(TableStyled, Object.assign({}, props)));
 
 const UnorderedList = styled__default.ul`
-  list-style: none;
-
-  & li::before {
-    content: '● ';
-    color: ${__chunk_1.get('colors.border')};
-    font-weight: bold;
-    font-size: 0.5em;
-    margin-right: 5px;
-  }
-
   ${__chunk_1.get('styles.ul')};
 
   ul li {
     padding-left: 25px;
+  }
+
+  li {
+    ${__chunk_1.get('styles.li')};
   }
 `;
 
@@ -2094,42 +2064,58 @@ const Global = styled.createGlobalStyle`
 const styles = {
   body: styled.css`
     font-family: ${__chunk_1.get('fonts.ui')};
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 14px;
+    color: #262626;
+    line-height: 24px;
+    letter-spacing: .05em;
+    outline-style: none;
+    word-wrap: break-word;
+    -webkit-user-select: auto;
   `,
   h1: styled.css`
     margin: 40px 0 20px;
     font-family: ${__chunk_1.get('fonts.display')};
-    font-size: 48px;
+    font-size: 28px;
+    line-height: 36px;
+    padding: 7px 0;
     font-weight: 600;
     letter-spacing: -0.02em;
   `,
   h2: styled.css`
     margin: 30px 0 15px;
-    line-height: 1.4em;
     font-family: ${__chunk_1.get('fonts.display')};
     font-weight: 500;
-    font-size: 28px;
+    font-size: 24px;
+    line-height: 32px;
+    padding: 7px 0;
     letter-spacing: -0.02em;
   `,
   h3: styled.css`
     margin: 25px 0 10px;
     font-size: 20px;
+    line-height: 28px;
+    padding: 7px 0;
     font-weight: 400;
   `,
   h4: styled.css`
     margin: 25px 0 10px;
     font-size: 16px;
+    line-height: 24px;
+    padding: 7px 0;
     font-weight: 400;
   `,
   h5: styled.css`
     margin: 20px 0 10px;
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 7px 0;
     font-weight: 400;
   `,
   h6: styled.css`
     margin: 20px 0 10px;
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 7px 0;
     font-weight: 400;
     text-transform: uppercase;
   `,
@@ -2140,6 +2126,10 @@ const styles = {
   ul: styled.css`
     padding: 0;
     margin: 10px 0 10px;
+  `,
+  li: styled.css`
+    white-space: normal;
+    margin-left: 23px;
   `,
   playground: styled.css`
     padding: 40px;
@@ -2158,7 +2148,11 @@ const styles = {
     line-height: 1.8;
   `,
   paragraph: styled.css`
-    margin: 10px 0 20px 0;
+    min-height: 24px;
+    line-height: 24px;
+    white-space: normal;
+    margin: 0;
+    letter-spacing: .05em;
   `,
   table: styled.css`
     overflow-y: hidden;
@@ -2200,7 +2194,6 @@ const config = {
   radii: '2px',
   mode: 'light',
   logo: {
-    src: 'https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg',
     width: 38
   },
   showPlaygroundEditor: false,

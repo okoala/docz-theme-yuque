@@ -10,6 +10,11 @@ import { get } from '~utils/theme'
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
+
+  &:first-child {
+    margin-top: 0;
+  }
 `
 
 interface OpenedProps {

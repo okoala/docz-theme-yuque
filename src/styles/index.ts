@@ -4,42 +4,58 @@ import { get } from '~utils/theme'
 export const styles = {
   body: css`
     font-family: ${get('fonts.ui')};
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 14px;
+    color: #262626;
+    line-height: 24px;
+    letter-spacing: .05em;
+    outline-style: none;
+    word-wrap: break-word;
+    -webkit-user-select: auto;
   `,
   h1: css`
     margin: 40px 0 20px;
     font-family: ${get('fonts.display')};
-    font-size: 48px;
+    font-size: 28px;
+    line-height: 36px;
+    padding: 7px 0;
     font-weight: 600;
     letter-spacing: -0.02em;
   `,
   h2: css`
     margin: 30px 0 15px;
-    line-height: 1.4em;
     font-family: ${get('fonts.display')};
     font-weight: 500;
-    font-size: 28px;
+    font-size: 24px;
+    line-height: 32px;
+    padding: 7px 0;
     letter-spacing: -0.02em;
   `,
   h3: css`
     margin: 25px 0 10px;
     font-size: 20px;
+    line-height: 28px;
+    padding: 7px 0;
     font-weight: 400;
   `,
   h4: css`
     margin: 25px 0 10px;
     font-size: 16px;
+    line-height: 24px;
+    padding: 7px 0;
     font-weight: 400;
   `,
   h5: css`
     margin: 20px 0 10px;
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 7px 0;
     font-weight: 400;
   `,
   h6: css`
     margin: 20px 0 10px;
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 7px 0;
     font-weight: 400;
     text-transform: uppercase;
   `,
@@ -50,6 +66,10 @@ export const styles = {
   ul: css`
     padding: 0;
     margin: 10px 0 10px;
+  `,
+  li: css`
+    white-space: normal;
+    margin-left: 23px;
   `,
   playground: css`
     padding: 40px;
@@ -68,7 +88,11 @@ export const styles = {
     line-height: 1.8;
   `,
   paragraph: css`
-    margin: 10px 0 20px 0;
+    min-height: 24px;
+    line-height: 24px;
+    white-space: normal;
+    margin: 0;
+    letter-spacing: .05em;
   `,
   table: css`
     overflow-y: hidden;

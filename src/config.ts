@@ -9,7 +9,6 @@ export const config = {
   radii: '2px',
   mode: 'light',
   logo: {
-    src: 'https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg',
     width: 38,
   },
   showPlaygroundEditor: false,

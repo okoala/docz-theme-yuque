@@ -9,7 +9,7 @@ export const light = {
   sidebarBg: colors.grey2,
   sidebarText: colors.dark,
   sidebarHighlight: null,
-  sidebarBorder: colors.grayLight,
+  sidebarBorder: colors.grey4,
   background: colors.white,
   border: colors.grayLight,
   theadColor: colors.gray,
