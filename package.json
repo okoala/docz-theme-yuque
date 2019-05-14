@@ -1,6 +1,6 @@
 {
   "name": "docz-theme-yuque",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The yuque theme of docz",
   "license": "MIT",
   "main": "dist/index.js",
@@ -16,7 +16,7 @@
     "build": "cross-env NODE_ENV=production rollup -c",
     "fix": "yarn lint --fix",
     "lint": "eslint . --ext .ts,.tsx",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged && npm run build"
   },
   "dependencies": {
     "@loadable/component": "^5.9.0",
@@ -54,5 +54,10 @@
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-styled-components": "^1.10.0",
     "docz-rollup": "^1.2.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuque/docz-theme-yuque"
+  },
+  "author": "okoala <dapixp@gmail.com>"
 }
