@@ -1,6 +1,6 @@
 {
   "name": "docz-theme-yuque",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "The yuque theme of docz",
   "license": "MIT",
   "main": "dist/index.js",
