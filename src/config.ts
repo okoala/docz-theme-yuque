@@ -11,6 +11,6 @@ export const config = {
   logo: {
     width: 38,
   },
-  showPlaygroundEditor: false,
+  showPlaygroundEditor: true,
   linesToScrollEditor: 18,
 }

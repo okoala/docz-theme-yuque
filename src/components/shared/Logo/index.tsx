@@ -42,7 +42,7 @@ const LogoImg = styled('img')`
 `
 
 const LogoText = styled('h1')`
-  margin: 5px 0;
+  margin: 9px 0;
   font-size: 22px;
   font-weight: 400;
   color: ${get('colors.sidebarText')};
